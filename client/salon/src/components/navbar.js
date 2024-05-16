@@ -1,0 +1,59 @@
+import React from 'react'
+import {Link} from 'react-router-dom'
+
+const show=()=>
+{
+  const obj=document.getElementById("sh");
+  obj.classList.toggle("top-[9%]");
+  obj.classList.toggle("bg-slate-900");
+  document.getElementById("cl").classList.toggle("text-white");
+}
+
+
+const navbar=()=> {
+   
+  return (
+   <>
+   <nav id="nv" class="flex justify-between items-center w-[92%]">
+    <div>
+    <img class="w-30 h-16" src="images/logo.png"/>
+    </div>
+    <div id="sh" class="content-start navLink  md:static absolute md:min-h-fit min-h-[40vh] left-0 top-[-100%] w-full flex px-5 py-8">
+      <ul id="cl" class="flex md:flex-row flex-col  gap-[4vw] w-full" >
+        <li class style={{borderTop:"1px solid white"}}>
+          <Link  to="/Different">Why we're Different</Link>
+        </li>
+        <li style={{borderTop:"1px solid white"}}>
+          <Link to="/Features">Our Services</Link>
+        </li>
+        <li style={{borderTop:"1px solid white"}}>
+          <Link to="/Pricing">Pricing</Link>
+        </li >
+        <li class style={{borderTop:"1px solid white"}}>
+          <Link to="/Resources">Resources</Link>
+        </li>
+        <li class style={{borderTop:"1px solid white"}}>
+          <Link to="/login">Login</Link>
+        </li>
+        <li class style={{borderTop:"1px solid white"}}>
+          <Link to="/Register">Sign up</Link>
+        </li>
+        <li style={{borderTop:"1px solid white"}}>
+        </li>
+      </ul>   
+    </div>
+    <div id="ele">
+    <ion-icon onClick={show} id="ele" name="menu" class="cursor-pointer md:hidden sm:hidden"></ion-icon>
+    </div>
+   </nav>   
+   
+   
+
+        
+
+
+   </>
+  
+  )
+}
+export default navbar

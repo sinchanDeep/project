@@ -1,5 +1,9 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import Cookies from 'js-cookie';
+import  axios  from 'axios';
 
 const show=()=>
 {
@@ -8,9 +12,42 @@ const show=()=>
   obj.classList.toggle("bg-slate-900");
   document.getElementById("cl").classList.toggle("text-white");
 }
-
-
-const navbar=()=> {
+const Navbar=()=> {
+    const navigate=useNavigate();
+    let [val,setVal]=useState(true);
+    const logout=()=>{
+      Cookies.remove("jwtToken");
+      navigate("/");
+  }
+     const userLogged= async ()=>{  
+        try{
+         let tkn="";
+         tkn=Cookies.get("jwtToken");
+         axios({
+             headers:{"Content-Type":"application/json"},
+             method:"POST",
+             credentials:"include",
+             url:"http://localhost:5000/api/salon",
+             data:{
+                 tkn
+             }
+         }).then((response)=>{
+             if(response.data=="logged")
+                 {
+                     setVal(true);    
+                 }
+                 else
+                 {
+                     setVal(false);
+                 }
+         });
+     }
+     catch(err){
+      alert("Unexpected netword error");
+     }
+    }
+    
+     userLogged();
    
   return (
    <>
@@ -32,12 +69,31 @@ const navbar=()=> {
         <li class style={{borderTop:"1px solid white"}}>
           <Link to="/Resources">Resources</Link>
         </li>
+        {val ?
+        <>
+        <li style={{borderTop:"1px solid white"}}>
+            <button onClick={logout}>Log Out</button>
+        </li>
+        <li class style={{borderTop:"1px solid white"}}>
+          <Link to="/login" hidden>Login</Link>
+        </li>
+        <li class style={{borderTop:"1px solid white"}} hidden>
+          <Link to="/Register" hidden>Sign up</Link>
+        </li>
+        </>
+        :
+        <>     
         <li class style={{borderTop:"1px solid white"}}>
           <Link to="/login">Login</Link>
         </li>
         <li class style={{borderTop:"1px solid white"}}>
           <Link to="/Register">Sign up</Link>
         </li>
+        <li style={{borderTop:"1px solid white"}}>
+            <button onClick={logout} hidden>Log Out</button>
+        </li>
+        </>
+        }
         <li style={{borderTop:"1px solid white"}}>
         </li>
       </ul>   
@@ -46,14 +102,7 @@ const navbar=()=> {
     <ion-icon onClick={show} id="ele" name="menu" class="cursor-pointer md:hidden sm:hidden"></ion-icon>
     </div>
    </nav>   
-   
-   
-
-        
-
-
    </>
-  
   )
 }
-export default navbar
+export default Navbar

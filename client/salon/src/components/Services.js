@@ -1,6 +1,6 @@
 import React from 'react'
 import ServicesFemale from '../components/ServicesFemale'
-import Navbar from '../components/navbar'
+import Navbar from '../components/Navbar'
 import {useState} from 'react'
 import ServiceMale from '../components/ServiceMale'
 

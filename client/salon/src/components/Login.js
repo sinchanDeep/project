@@ -37,7 +37,12 @@ const Login = () => {
                 {
                     alert("login successful");
                     const tkn=response.data;
-                    document.cookie="jwtToken = "+tkn;
+                    var now=new Date();
+                    var time=now.getTime();
+                    var expireTime=time+10000*600000;
+                    now.setTime(expireTime);
+                    
+                    document.cookie="jwtToken = "+tkn+";expires="+now.toUTCString();
                     navigate("/");
                     
                 }

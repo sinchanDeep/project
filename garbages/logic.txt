@@ -1,0 +1,62 @@
+ const obj={name,email,phone};
+    fetch("/", {
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({
+            "name":name,
+            "email":email,
+            "phone":phone
+        })
+    }).then(
+        console.log("added successfully")
+
+    );
+
+
+
+fetch('http://localhost:5000/api/salon', {
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json;charset=utf-8",
+            "Header":"Value",
+            "x-powered-by":"Express"
+        },
+        body:JSON.stringify({
+            name,
+            email,
+            phone,
+        })
+
+    });//.then(
+        //res=> res.json()
+        
+   // );
+    //const res=await res.json();
+    //console.log(res);
+   
+        
+
+        //@desc check whether a user's information is stored in db or not
+//@route get/api/salon
+//@access public
+const getUser=asyncHandler( async (req,res)=>{
+    const {name,email,phone}=req.body;
+    if(!name||!email||!phone)
+    {
+        res.status(400);
+        throw new Error("Enter all the fields");
+    }
+    
+    //const user=await customers.findById(req.params.id);
+    customers.findOne({"name":"sinchan"}).then(
+        (userExists)=>{
+            res.send(userExists);
+        }
+    );
+    if(!user){
+        res.status(404);
+        throw new Error("user not found");
+    }
+    res.status(200).json(user);
+  
+});

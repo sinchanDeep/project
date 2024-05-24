@@ -1,33 +1,38 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, Navigate} from 'react-router-dom'
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useState } from 'react';
-//import { useSelector,useDispatch } from 'react-redux';
-//import {checkLogin} from '../actions/index';
-
-
+import { useNavigate } from 'react-router-dom';
 const show=()=>
 {
   const obj=document.getElementById("sh");
   obj.classList.toggle("top-[9%]");
   obj.classList.toggle("bg-slate-900");
-  //obj.classList.toggle("mt-10");
   document.getElementById("cl").classList.toggle("text-white");
   document.getElementById("texts").classList.toggle("my-35");
 }
-
 const Home = () => {
-    let [val,setVal]=useState(true);
-       
-    const userLogged= async ()=>{
-        
-        let tkn=Cookies.get("jwtToken");
-        if(tkn==undefined)
-            {
-                tkn="husadhuc";
-            }
-            //console.log(tkn);
+    const navigate=useNavigate();
+   let [val,setVal]=useState(true);
+   const order=()=>{
+    if(Cookies.get("jwtToken"))
+        {
+            navigate("/Services");
+        }
+        else
+        {
+    navigate("/Login");
+    }
+}
+const logout=()=>{
+    Cookies.remove("jwtToken");
+    navigate("/");
+}
+    const userLogged= async ()=>{  
+        try{
+        let tkn="";
+        tkn=Cookies.get("jwtToken");
         axios({
             headers:{"Content-Type":"application/json"},
             method:"POST",
@@ -39,24 +44,21 @@ const Home = () => {
         }).then((response)=>{
             if(response.data=="logged")
                 {
-                    setVal(true);
-                    return;     
+                    setVal(true);    
                 }
                 else
                 {
                     setVal(false);
                 }
-        })
+        });
     }
+    catch(err){
+        alert("Unexpected network error");
+    }
+}
     userLogged();
-    //let val=useSelector((state)=>state.checkUserLogin);
-   // const dispatch = useDispatch();
-    //let val=dispatch(checkLogin());
-    //console.log(val);
   return (
-   <>   
-  
-        
+   <>      
         <div className='grid grid-cols-1 '>
             <div>
         <nav id="nv" className="flex justify-between items-center w-[92%]">
@@ -69,7 +71,7 @@ const Home = () => {
           <Link  to="/Different">Why we're Different</Link>
         </li>
         <li style={{borderTop:"1px solid white"}}>
-          <Link to="/Features">Our Services</Link>
+          <Link to="/Services">Our Services</Link>
         </li>
         <li style={{borderTop:"1px solid white"}}>
           <Link to="/Pricing">Pricing</Link>
@@ -79,13 +81,16 @@ const Home = () => {
         </li>
         {
             val ?
-            <>
+            <>       
             <li class style={{borderTop:"1px solid white"}} hidden>
           <Link id="login" to="/login" hidden>Login</Link>
         </li>
         <li id="signin" class style={{borderTop:"1px solid white"}} hidden>
           <Link to="/register" hidden>Sign up</Link>
         </li>
+        <li id="signout" style={{borderTop:"1px solid white"}}>
+                <button id="logout" onClick={logout}>Log Out</button>
+            </li>     
         </>
         :
         <>
@@ -95,9 +100,11 @@ const Home = () => {
         <li id="signin" class style={{borderTop:"1px solid white"}}>
           <Link to="/register">Sign up</Link>
         </li>
+        <li id="signout">
+            <Link id="logout" hidden>Log Out</Link>
+        </li>
         </>
-        }
-        
+        }     
         <li style={{borderTop:"1px solid white"}}>
         </li>
       </ul>   
@@ -108,29 +115,20 @@ const Home = () => {
         </nav> 
         </div>  
         </div>
-
-           
-
-
-
         <div className='md:flex flex-row flex-col gap-3 grow' id="texts">
             <div className='m-4'>
             <h1 className="py-10 md:px-0 px-1 md:text-4xl/[47px] text-2xl/[40px] md:text-left text-center"style={{color:"purple",fontFamily:"sans-serif"}}>Highest-Rated Software for Salons & Spas</h1>
             <h1 className="md:px-0 px-5 ml-3 md:text-5xl/[47px] text-2xl/[40px] md:text-left" style={{fontSize:"50px",color:"darkblue"}}>Where business gets<br/> more beautiful</h1> 
             <p className="md:py-8 py-5 ml-3 md:px-0 px-5" style={{fontSize:"20px"}}>Automate day-to-day operations and<br/> enhance your client experience with the<br/> booking software salons and spas love.</p>
-            <button className="btn md:ml-22 ml-14">Order Appointment</button>
-            </div>
-            
+            <button className="btn md:ml-22 ml-14" onClick={order}>Order Appointment</button>
+            </div>        
             <div className=''>
             <div className="rounded-full ml-6 md:w-96 w-90 transition-all duration-300 rounded-lg cursor-pointer ">
                 <img src="images/girl.png" id="mainimg"/>
             </div>
             </div>
         </div>
-
-        <div className='flex flex-col'>
-            
-
+        <div className='flex flex-col'>        
 <footer class="bg-White dark:bg-gray-900 ">
     <div class="mx-auto w-full max-w-screen-xl">
       <div class="ml-5 grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
@@ -239,11 +237,9 @@ const Home = () => {
     </div>
 </footer>
 
-        </div>
-   
-   </>
+        </div> 
+   </> 
   )
-
 }
 
 export default Home

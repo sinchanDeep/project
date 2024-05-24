@@ -81,17 +81,15 @@ const getUser=asyncHandler( async (req,res)=>{
 //@route get/api/salon
 //@access public
 const checkUser = asyncHandler (async(req,res)=>{
-    const tkn=req.body;
-    //const tkn=JSON.stringify(accessToken);
-    //console.log(tkn);
-    const user=await customers.findOne({accessToken:tkn});
+    const accessToken=req.body.tkn;
+    //console.log(accessToken);
+    const user=await customers.findOne({accessToken});
     if(user){
         res.json("logged");
     }
     else{
         res.json("notlogged");
     }
-
 });
 
 module.exports={ createUser, getUser, checkUser};

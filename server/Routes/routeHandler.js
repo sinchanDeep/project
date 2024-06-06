@@ -12,6 +12,7 @@ const {getKeratinStylists}=require("../controller/controller");
 const {saveAppointment}=require("../controller/controller");
 const {checkappointment}=require("../controller/controller");
 const {ForgotPassword}=require("../controller/controller");
+const {generateotp}=require("../controller/controller");
 const validateToken = require("../middleware/validateToken");
 
 
@@ -31,5 +32,6 @@ router.route("/getKeratinStylists").get(getKeratinStylists);
 router.route("/saveappointment").post(saveAppointment);
 router.route("/checkappointment").post(checkappointment);
 router.route("/ForgotPassword").post(ForgotPassword);
+router.route("/generateotp").post(generateotp);
 
 module.exports=router;

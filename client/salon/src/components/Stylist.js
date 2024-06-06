@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Cookies from "js-cookie";
 
 let arr=[{
   name:"",
@@ -26,6 +27,8 @@ let appData=[];
 
   //to get all the info about appointment
 const getAppointment=(styler)=>{
+  if(Cookies.get("jwtToken"))
+    {
   let custStylist=styler;
     axios({
       headers:{"Content-Type":"application/json"},
@@ -57,6 +60,10 @@ const getAppointment=(styler)=>{
         }
 
     })
+  }
+  else{
+    navigate("/Login");
+  }
    
 }
   const getHairStylists=()=>{

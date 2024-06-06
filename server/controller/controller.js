@@ -218,9 +218,39 @@ const ForgotPassword=asyncHandler(async (req,res)=>{
     password=await  bcrypt.hash(pass1,12);
     let email=mail;
     const cust= await customers.updateOne({email},{password});
-    console.log(cust);
     res.json(cust);
+});
 
-})
+//@desc creates the otp
+//@rooute get/api/salon/generateotp
+//@access public
+const generateotp=asyncHandler(async(req,res)=>{
+    let email=req.body.email;
+    let otp=(parseInt(Math.random()*100000));
+    res.json(otp);
+    //sending an email
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'hairartistry333@gmail.com',
+          pass: 'nypn upan jovm rcrv'
+        }
+      });
+      
+      var mailOptions = {
+        from: 'hairartistry333@gmail.com',
+        to: email,
+        subject: 'Password Reset Verification',
+        text: `your otp for password resetting is ${otp}`
+      };
+      
+      transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      });
+});
 
-module.exports={ createUser, getUser, checkUser, getHairStylists, getHairColorArtists, getHairSpaStylists, getHairStraightStylists, getKeratinStylists, saveAppointment, checkappointment, ForgotPassword};
+module.exports={ createUser, getUser, checkUser, getHairStylists, getHairColorArtists, getHairSpaStylists, getHairStraightStylists, getKeratinStylists, saveAppointment, checkappointment, ForgotPassword, generateotp};

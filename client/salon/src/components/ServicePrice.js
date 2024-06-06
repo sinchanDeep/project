@@ -8,7 +8,7 @@ const ServicePrice = () => {
         <Navbar/>
         <div className='flex flex-col content-center justify-center'>
             <div className='border-black-700'>
-                <img className='' src="images/priceWomen.png"/>
+                <img className='w-full' src="images/priceWomen.png"/>
             </div>
             <div className='mt-9'>
               <img className ='w-full'src="images/hairCareWoman.jpg"/>

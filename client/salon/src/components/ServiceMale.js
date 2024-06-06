@@ -1,6 +1,11 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 function ServiceMale() {
+  const navigate=useNavigate();
+  const price=()=>{
+    navigate("/ServicePrice");
+  }
   return (
     <>  
          <div className="flex flex-col gap-4">
@@ -15,7 +20,7 @@ function ServiceMale() {
             looks for all events. Be a show-stopper at all events with our “go-to hairdressers.”
                 </p>
                 <div className='p-8 text-center'>
-                <button class="price1">VIEW PRICE</button>
+                <button class="price1" onClick={price}>VIEW PRICE</button>
                 </div>
             </div>
             
@@ -33,7 +38,7 @@ function ServiceMale() {
                  Be a show-stopper at all events with our “go-to hairdressers.”
                 </p>
                 <div className='p-8 pb-0 text-center'>
-                <button class="price1">VIEW PRICE</button>
+                <button class="price1" onClick={price}>VIEW PRICE</button>
                 </div>
               </div>
           </div>
@@ -49,7 +54,7 @@ function ServiceMale() {
                  Give that dash of spunk with our super friendly services.
                 </p>
                 <div className='p-8 pb-0 text-center md:p-8 pb-0 text-left lg:text-left'>
-                <button class="price1">VIEW PRICE</button>
+                <button class="price1" onClick={price}>VIEW PRICE</button>
                 </div>
               </div>
           </div>
@@ -67,7 +72,7 @@ function ServiceMale() {
 
                 </p>
                 <div className='p-8 pb-0 text-center md:p-8 pb-0 text-left lg:text-left'>
-                <button class="price1">VIEW PRICE</button>
+                <button class="price1" onClick={price}>VIEW PRICE</button>
                 </div>
               </div>
           </div>
@@ -83,7 +88,7 @@ function ServiceMale() {
                  Naturals spa is a miracle booster that every human needs.
                 </p>
                 <div className='p-8 pb-0 text-center md:p-8 pb-0 text-left lg:text-left'>
-                <button class="price1">VIEW PRICE</button>
+                <button class="price1" onClick={price}>VIEW PRICE</button>
                 </div>
               </div>   
          </div>
@@ -101,7 +106,7 @@ function ServiceMale() {
                 you with its best hair care treatment. Style it with Naturals.
                 </p>
                 <div className='p-8 pb-0 text-center md:p-8 pb-0 text-left lg:text-left'>
-                <button class="price1">VIEW PRICE</button>
+                <button class="price1" onClick={price}>VIEW PRICE</button>
                 </div>
               </div>   
          </div>

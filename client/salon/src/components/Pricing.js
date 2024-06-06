@@ -3,7 +3,7 @@ import React from 'react'
 const Pricing = () => {
   return (
     <>
-    write code here
+    write code here okay
     </>
   )
 }

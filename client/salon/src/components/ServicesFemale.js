@@ -1,6 +1,11 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function ServicesFemale() {
+const navigate=useNavigate();
+  const price=()=>{
+    navigate("/ServicePrice");
+  }
   return (
     <>
       <div className="flex flex-col gap-4">
@@ -16,7 +21,7 @@ function ServicesFemale() {
                 Meeting the new you is only a haircut away!
                 </p>
                 <div className='p-8 text-center'>
-                <button class="price1">VIEW PRICE</button>
+                <button class="price1" onClick={price}>VIEW PRICE</button>
                 </div>
             </div>
             

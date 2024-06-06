@@ -28,9 +28,7 @@ const Services = () => {
             </div>
           </div>
           </div>
-          {Active=="female"?<div><ServicesFemale/></div>:<div><ServiceMale/></div>}
-          
-      
+          {Active=="female"?<div><ServicesFemale/></div>:<div><ServiceMale/></div>}   
     </>
     
   )

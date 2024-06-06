@@ -61,7 +61,7 @@ const Navbar=()=> {
           <Link  to="/Different">Why we're Different</Link>
         </li>
         <li style={{borderTop:"1px solid white"}}>
-          <Link to="/Features">Our Services</Link>
+          <Link to="/Services">Our Services</Link>
         </li>
         <li style={{borderTop:"1px solid white"}}>
           <Link to="/Pricing">Pricing</Link>
@@ -94,8 +94,7 @@ const Navbar=()=> {
         </li>
         </>
         }
-        <li style={{borderTop:"1px solid white"}}>
-        </li>
+       
       </ul>   
     </div>
     <div id="ele">

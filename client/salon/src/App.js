@@ -13,6 +13,10 @@ import Services from './components/Services';
 import Pricing from './components/Pricing';
 //import Resources from './components/Resources';
 import Appointment from './components/Appointment';
+import ServicePrice from './components/ServicePrice';
+//import Stylist from './components/Stylist';
+import FinalOrder from './components/FinalOrder';
+import ForgotPassword from './components/ForgotPassword';
 
 function App() {
  /* const router=createBrowserRouter([
@@ -40,8 +44,9 @@ function App() {
         <Route path="/Services" element={<Services/>}/>
         <Route path="/Pricing" element={<Pricing/>}/>
         <Route path="/Resources" element={<Appointment/>}/>
-
-
+        <Route path="/ServicePrice" element={<ServicePrice/>}/>
+        <Route path="/FinalOrder" element={<FinalOrder/>}/>
+        <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
       </Routes>
     </BrowserRouter>
     </>

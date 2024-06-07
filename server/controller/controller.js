@@ -9,6 +9,7 @@ const hairspas=require("../models/hairSpaSchema");
 const straightenings=require("../models/hairStraightSchema");
 const keratin=require("../models/KratinSchema");
 const appointments=require("../models/saveAppointmentSchema");
+const allappointments=require("../models/allappointmentsSchema");
 const e = require("express");
 const bcrypt=require("bcrypt");
 
@@ -142,7 +143,7 @@ const getKeratinStylists=asyncHandler(async(req,res)=>{
 //@route get/api/salon/saveappointment
 //@access public
 const saveAppointment=asyncHandler(async(req,res)=>{
-   let {custName,custNo,date,mail,service,stylist}=req.body;
+   let {custName,custNo,date,mail,service,stylist,jwt}=req.body;
     const isExist=await appointments.findOne({custName,custNo,date,mail,service,stylist});
     if(isExist)
         {
@@ -158,6 +159,15 @@ const saveAppointment=asyncHandler(async(req,res)=>{
         mail,
         service,
         stylist
+    });
+    const allappointment=await allappointments.create({
+        custName,
+        custNo,
+        date,
+        mail,
+        service,
+        stylist,
+        jwt
     });
     if(appointment){
         
@@ -210,6 +220,24 @@ const checkappointment=asyncHandler(async (req,res)=>{
         }
 });
 
+//@desc checks if the appointment is there or not
+//@route get/api/salon/checkappointment
+//@access public
+const getAppointment=asyncHandler(async (req,res)=>{
+    let{custNo,custName}=req.body;
+    //let stylist=custStylist;
+    //let date=appDate;
+    const isExist=await appointments.find({custNo,custName});
+    if(isExist)
+        {
+            res.json(isExist);
+        }
+        else
+        {
+            res.json("notexists");
+        }
+});
+
 //@desc updating the password
 //@route get/api/salon/ForgotPassword
 //@access public
@@ -253,4 +281,14 @@ const generateotp=asyncHandler(async(req,res)=>{
       });
 });
 
-module.exports={ createUser, getUser, checkUser, getHairStylists, getHairColorArtists, getHairSpaStylists, getHairStraightStylists, getKeratinStylists, saveAppointment, checkappointment, ForgotPassword, generateotp};
+//@desc gets all appointments
+//@route get/api/salon/getallappointments
+//@access public
+const getallappointments=asyncHandler(async(req,res)=>{
+    let {jwt}=req.body;
+    const allapps=await allappointments.find({jwt});
+    res.json(allapps);
+
+});
+
+module.exports={ createUser, getUser, checkUser, getHairStylists, getHairColorArtists, getHairSpaStylists, getHairStraightStylists, getKeratinStylists, saveAppointment, checkappointment, ForgotPassword, generateotp, getallappointments};

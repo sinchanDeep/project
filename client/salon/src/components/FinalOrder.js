@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios';
-
+import Cookies from 'js-cookie';
 
 
 
@@ -19,6 +19,7 @@ const FinalOrder = () => {
       mail=location.state.appData[0].email;
       service=location.state.appData[0].service;
       stylist=location.state.appData[0].stylist;
+      const jwt=Cookies.get("jwtToken");
     
       axios({
         headers:{"Content-Type":"application/json"},
@@ -31,7 +32,8 @@ const FinalOrder = () => {
           date,
           mail,
           service,
-          stylist
+          stylist,
+          jwt
         }
       }).then((response)=>{
         console.log(response.data);

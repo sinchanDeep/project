@@ -10,13 +10,13 @@ import {BrowserRouter, createBrowserRouter,RouterProvider} from 'react-router-do
 import Register from './components/Register';
 import Different from './components/Different';
 import Services from './components/Services';
-import Pricing from './components/Pricing';
 //import Resources from './components/Resources';
 import Appointment from './components/Appointment';
 import ServicePrice from './components/ServicePrice';
 //import Stylist from './components/Stylist';
 import FinalOrder from './components/FinalOrder';
 import ForgotPassword from './components/ForgotPassword';
+import Myorders from './components/Myorders';
 
 function App() {
  /* const router=createBrowserRouter([
@@ -42,7 +42,7 @@ function App() {
         <Route path="/register" element={<Register/>}/>
         <Route path="/Different" element={<Different/>}/>
         <Route path="/Services" element={<Services/>}/>
-        <Route path="/Pricing" element={<Pricing/>}/>
+        <Route path="/myorders" element={<Myorders/>}/>
         <Route path="/Resources" element={<Appointment/>}/>
         <Route path="/ServicePrice" element={<ServicePrice/>}/>
         <Route path="/FinalOrder" element={<FinalOrder/>}/>

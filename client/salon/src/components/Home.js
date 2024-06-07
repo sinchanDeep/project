@@ -74,7 +74,7 @@ const logout=()=>{
           <Link to="/Services">Our Services</Link>
         </li>
         <li style={{borderTop:"1px solid white"}}>
-          <Link to="/Pricing">Pricing</Link>
+        <Link to="/myorders">My Orders</Link>
         </li >
         <li class style={{borderTop:"1px solid white"}}>
           <Link to="/Resources">Resources</Link>

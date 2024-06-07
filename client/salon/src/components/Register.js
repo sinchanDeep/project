@@ -11,6 +11,7 @@ const Register = () => {
 
     const store=async(e)=>{
         e.preventDefault();
+    
        let fname=document.getElementById("fname").value;
        const lname=document.getElementById("lname").value;
        const email=document.getElementById("email").value;
@@ -18,6 +19,15 @@ const Register = () => {
        const password=document.getElementById("password").value;
        const female=document.getElementById("female").value;
        const male=document.getElementById("male").value;
+       if(fname.length!=0&&lname.length!=0&&phone!=0&&female!=0&&(male||female))
+        {
+
+       if(password<8)
+        {
+            alert("password should be 8 characters");
+        }
+        else
+        {
        if(!male||!male){
         alert("Please choose gender");
         return;
@@ -56,6 +66,8 @@ const Register = () => {
         navigate("/login");
             }
     });    
+}
+        }else{alert("fill in all details")}
     }
 
   return (
@@ -93,14 +105,14 @@ const Register = () => {
                     <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@gmail.com" required/>
                 </div>
                 <div>
-                    <label for="phno" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Phone number</label>
+                    <label for="phno" min="10" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Phone number</label>
                     <input type="number" name="phno" id="phno" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Phone no." required/>
                 </div>
                 
                 <label for="gender" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Gender</label>
                 <div class="form-check grid grid-cols-6 gap-10 ">
                   <div className='flex fle-row gap-4'>
-                    <div className='pr-4'>
+                    <div className='pr-4' required>
                     <input id="male" class="form-check-input" type="radio" name="gender"/>
                     <label class="form-check-label" for="male"> Male </label>
                     </div>
@@ -123,11 +135,11 @@ const Register = () => {
                           <label for="remember" class="text-gray-500 dark:text-gray-300">Remember me</label>
                         </div>
                     </div>
-                    <a href="#" class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>
+                   
                 </div>
-                <button id="sub" class="w-full text-black bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" onClick={store} to="/login">Sign in</button>
+                <button id="sub" class="w-full text-black bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" onClick={store} to="/login">Register</button>
                 <p class="text-sm font-light text-gray-500 dark:text-gray-400 text-center">
-                    Don’t have an account yet? <a href="#" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a>
+                    Already have an account? <Link to="/login" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Login</Link>
                 </p>
             </form>
         </div>

@@ -12,6 +12,7 @@ const straightenings = require("../models/hairStraightSchema");
 const keratin = require("../models/KratinSchema");
 const appointments = require("../models/saveAppointmentSchema");
 const allappointments = require("../models/allappointmentsSchema");
+const price=require("../models/pricemodel");
 const e = require("express");
 const bcrypt = require("bcrypt");
 
@@ -288,6 +289,14 @@ const processpayment = asyncHandler(async (req, res) => {
   res.send("hello");
 });
 
+//@desc gets all the price
+//@route get/api/salon/getprice
+//@access public
+const getprice=asyncHandler(async(req,res)=>{
+  const pricee=await price.find({});
+  res.json(pricee);
+});
+
 module.exports = {
   createUser,
   getUser,
@@ -303,4 +312,5 @@ module.exports = {
   generateotp,
   getallappointments,
   processpayment,
+  getprice
 };

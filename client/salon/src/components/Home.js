@@ -76,9 +76,9 @@ const logout=()=>{
         <li style={{borderTop:"1px solid white"}}>
         <Link to="/myorders">My Orders</Link>
         </li >
-        <li class style={{borderTop:"1px solid white"}}>
+        {/*<li class style={{borderTop:"1px solid white"}}>
           <Link to="/Resources">Resources</Link>
-        </li>
+        </li>*/}
         {
             val ?
             <>       
@@ -129,7 +129,7 @@ const logout=()=>{
             </div>
         </div>
         <div className='flex flex-col'>        
-<footer class="bg-White dark:bg-gray-900 ">
+{/*<footer class="bg-White dark:bg-gray-900 ">
     <div class="mx-auto w-full max-w-screen-xl">
       <div class="ml-5 grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
         <div>
@@ -235,7 +235,7 @@ const logout=()=>{
         </div>
       </div>
     </div>
-</footer>
+</footer>*/}
 
         </div> 
    </> 

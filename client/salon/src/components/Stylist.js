@@ -98,7 +98,7 @@ const getAppointment=(styler)=>{
       headers:{"Content-Type":"application/json"},
       method:"GET",
       credentials:"include",
-      url:"http://localhost:5000/api/salon/getHairColourStylists"
+      url:"http://localhost:5000/api/salon/getHairStylists"
     }).then((response)=>{
       setStyistArray([
         {
@@ -115,6 +115,9 @@ const getAppointment=(styler)=>{
     url1="images/haircolourist1.jpg";
     url2="images/haircolourist2.jpg";
     url3="images/haircolourist3.jpg";
+    url1="images/hairstylist1.jpg";
+      url2="images/hairstylist2.jpg";
+      url3="images/hairstylist3.jpg";
     setservice1("");
   }
 
@@ -123,7 +126,7 @@ const getAppointment=(styler)=>{
       headers:{"Content-Type":"application/json"},
       method:"GET",
       credentials:"include",
-      url:"http://localhost:5000/api/salon/getHairSpaStylists"
+      url:"http://localhost:5000/api/salon/getHairStylists"
     }).then((response)=>{
       setStyistArray([
         {
@@ -140,6 +143,9 @@ const getAppointment=(styler)=>{
     url1="images/hairspastylist1.jpg";
     url2="images/hairspastylist2.jpg";
     url3="images/hairspastylist3.jpg";
+    url1="images/hairstylist1.jpg";
+      url2="images/hairstylist2.jpg";
+      url3="images/hairstylist3.jpg";
     setservice1("");
   }
 
@@ -148,7 +154,7 @@ const getAppointment=(styler)=>{
       headers:{"Content-Type":"application/json"},
       method:"GET",
       credentials:"include",
-      url:"http://localhost:5000/api/salon/getHairStraightStylists"
+      url:"http://localhost:5000/api/salon/getHairStylists"
     }).then((response)=>{
       setStyistArray([
         {
@@ -165,6 +171,9 @@ const getAppointment=(styler)=>{
     url1="images/hairstraightstylist1.jpg";
     url1="images/hairstraightstylist2.jpg";
     url1="images/hairstraightstylist3.jpg";
+    url1="images/hairstylist1.jpg";
+      url2="images/hairstylist2.jpg";
+      url3="images/hairstylist3.jpg";
     setservice1("");
   }
 
@@ -174,7 +183,7 @@ const getAppointment=(styler)=>{
       headers:{"Content-Type":"application/json"},
       method:"GET",
       credentials:"include",
-      url:"http://localhost:5000/api/salon/getKeratinStylists"
+      url:"http://localhost:5000/api/salon/getHairStylists"
     }).then((response)=>{
       setStyistArray([
         {
@@ -191,6 +200,9 @@ const getAppointment=(styler)=>{
       url1="images/keratinstylist1.jpg";
       url2="images/keratinstylist2.jpg";
       url3="images/keratinstylist3.jpg";
+      url1="images/hairstylist1.jpg";
+      url2="images/hairstylist2.jpg";
+      url3="images/hairstylist3.jpg";
       setservice1("");
   }
   switch(service1)
@@ -201,6 +213,7 @@ const getAppointment=(styler)=>{
     case "HAIRSTRAIGHTENING":getHairStraightStylists();break;
     case "KERATINSERVICE":getKeratinStylists();break;
   } 
+
   return (
     <> 
         <div className='h-auto w-full sm:flex flex-row gap-9'>

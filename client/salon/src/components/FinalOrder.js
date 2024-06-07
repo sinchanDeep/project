@@ -2,86 +2,67 @@ import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import Navbar from"../components/Navbar";
+import { useEffect } from 'react';
 
 
 
 const FinalOrder = () => {
     const navigate=useNavigate();
     const location=useLocation();
-    const placeOrder=()=>{
-      if(window.confirm("Are you sure to place order"))
-        {
+    //const placeOrder=()=>{
       
-      let custName,custNo,date,mail,service,stylist;
-      custName=location.state.appData[0].name;
-      custNo=location.state.appData[0].custno;
-      date=location.state.appData[0].date;
-      mail=location.state.appData[0].email;
-      service=location.state.appData[0].service;
-      stylist=location.state.appData[0].stylist;
-      const jwt=Cookies.get("jwtToken");
+      
     
-      axios({
-        headers:{"Content-Type":"application/json"},
-        method:"POST",
-        credentials:"include",
-        url:"http://localhost:5000/api/salon/saveappointment",
-        data:{
-          custName,
-          custNo,
-          date,
-          mail,
-          service,
-          stylist,
-          jwt
-        }
-      }).then((response)=>{
-        console.log(response.data);
-        if(response.data=="exists")
-          {
-            alert("the appointment already exists");
-            navigate("/Services");
-          }
-          else{
-            alert("order placed successfully");
-             navigate("/Services");
-            //navigate("/Payment");
-          }
-      });
-    }else{
-      alert("order has been cancelled");
-    }
-    }
-
+    //}
+    
+    const handlePrint = () => {
+      window.print(); // Call the print function when the button is clicked
+    };
   return (
     <>
-      {console.log(location.state.appData[0].name)}
-      <div className='flex flex-col'>
-          <div className='self-center m-5'>
-            <h1 className='text-4xl font-sans'>ORDER DETAILS </h1>
-          </div>
-          <div className='self-center m-2'>
-            <h1 className='text-2xl font-sans'>Customer Name: {location.state.appData[0].name} </h1>
-          </div>
-          <div className='self-center m-2'>
-            <h1 className='text-2xl font-sans'>Customer Number: {location.state.appData[0].custno} </h1>
-          </div>
-          <div className='self-center m-2'>
-            <h1 className='text-2xl font-sans'>Customer Mail: {location.state.appData[0].email} </h1>
-          </div>
-          <div className='self-center m-2'>
-            <h1 className='text-2xl font-sans'>Appointment Data: {location.state.appData[0].date} </h1>
-          </div>
-          <div className='self-center m-2'>
-            <h1 className='text-2xl font-sans'>Service Name: {location.state.appData[0].service} </h1>
-          </div>
-          <div className='self-center m-2'>
-            <h1 className='text-2xl font-sans'>Stylist Name: {location.state.appData[0].stylist} </h1>
-          </div>
-          <div className='self-center m-6'>
-            <button onClick={placeOrder}>ORDER</button>
-          </div>
+    <Navbar/>
+      <div className="h-screen flex flex-col items-center justify-center bg-gray-100 pt-7">
+    <div className="max-w-xl w-full bg-white shadow-md rounded-lg overflow-hidden">
+      <div className="px-4 py-4">
+        <div className="flex items-center justify-between mb-4">
+          <img src="images/logo-1.svg" alt="Salon Logo" className="h-12 w-auto" />
+          <h1 className="text-3xl font-bold">Salon Receipt</h1>
+        </div>
+        <p className="text-gray-600 mb-4"></p>
+        <div className="border-b border-gray-200 mb-4"></div>
+        <div className="flex justify-between mb-4">
+          <p className="text-gray-600">Service</p>
+          <p className="text-gray-800 font-semibold">{location.state.appData[0].service}</p>
+        </div>
+        <div className="flex justify-between mb-4">
+          <p className="text-gray-600">Price</p>
+          <p className="text-gray-800 font-semibold">120</p>
+        </div>
+        <div className="flex justify-between mb-4">
+          <p className="text-gray-600">Stylist</p>
+          <p className="text-gray-800 font-semibold">{location.state.appData[0].stylist}</p>
+        </div>
+        <div className="border-b border-gray-200 mb-4"></div>
+        <div className="flex justify-between mb-4">
+          <p className="text-gray-600">Total</p>
+          <p className="text-gray-800 font-semibold">120</p>
+        </div>
+        <div className="flex justify-end">
+          <button
+            onClick={handlePrint}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Print
+          </button>
+        </div>
       </div>
+    </div>
+    <footer className="mt-auto text-gray-600 text-center">
+      © 2024 Hair Artistry. All rights reserved.
+    </footer>
+    
+  </div>
     </>
   )
 }

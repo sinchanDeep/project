@@ -52,11 +52,11 @@ const Navbar=()=> {
   return (
    <>
    <nav id="nv" class="flex justify-between items-center w-[92%]">
-    <div>
-      <Link to="/">
+    <Link to="/">
+      <div>
     <img class="w-30 h-16 md:ml-6" src="images/logo-1.svg"/>
-    </Link>
     </div>
+    </Link>
     <div id="sh" class="content-start navLink  md:static absolute md:min-h-fit min-h-[40vh] left-0 top-[-100%] w-full flex px-5 py-8">
       <ul id="cl" class="flex md:flex-row flex-col  gap-[4vw] w-full" >
         <li class style={{borderTop:"1px solid white"}}>
@@ -68,9 +68,9 @@ const Navbar=()=> {
         <li style={{borderTop:"1px solid white"}}>
           <Link to="/myorders">My Orders</Link>
         </li >
-        <li class style={{borderTop:"1px solid white"}}>
+        {/*<li class style={{borderTop:"1px solid white"}}>
           <Link to="/Resources">Resources</Link>
-        </li>
+        </li>*/}
         {val ?
         <>
         <li style={{borderTop:"1px solid white"}}>

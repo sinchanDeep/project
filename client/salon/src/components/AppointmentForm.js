@@ -2,10 +2,12 @@ import React from 'react'
 import Stylist from '../components/Stylist';
 import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 //import { useNavigate } from 'react-router-dom';
 
 
 const AppointmentForm = () => {
+  const navigate=useNavigate();
   let [service,setService]=useState("");
   let[custName,setcustName]=useState("");
   let[custNo,setcustno]=useState("");
@@ -13,12 +15,14 @@ const AppointmentForm = () => {
   let[mail,setMail]=useState("");
 
   const setTheService=()=>{
+    
     var select=document.getElementById("servicess").value;
     setService(select);  
     setcustName(document.getElementById("First_Name").value);
     setcustno(document.getElementById("Mobile_Number").value);
     setappdate(document.getElementById("dates").value);
     setMail(document.getElementById("Email_Id").value);
+      
   }
 
   
@@ -46,14 +50,14 @@ const AppointmentForm = () => {
   return (
     <>
 
-      <div className="bg-p1 max-w-7xl max-h-max m-auto p-2 sm:flex-col flex flex-row border-black" >
+      <div style={{"backgroundColor":"#f3e8ff"}} className="max-w-7xl max-h-max m-auto p-2 sm:flex-col flex flex-row border-black" >
         <div className=" mb-3 px-10 py-10 w-100 ">
           <h3 className="text-left  ">BOOKINGS</h3>
           <br />
-          <h5 className="text-left text-txt1 font-serif text-4xl mb-10">
+          <h5 style={{"color":"#5b21b6"}} className="text-left font-serif text-4xl mb-10">
             Make An Appointment
           </h5>
-          <form className="w-full max-w-2xl ml-2 ">
+          <form className="w-full max-w-2xl ml-2 " onSubmit={(e)=>{e.preventDefault();document.getElementById("servicess").hidden=false}}>
             <div className="flex flex-wrap -mx-3 mb-2">
               <div className="w-full md:w-1/2 px-3 mb-2 md:mb-0">
                 <label
@@ -66,7 +70,7 @@ const AppointmentForm = () => {
                   id="First_Name"
                   type="text"
                   placeholder="YOUR NAME"
-                />
+                required />
                 {/*bg-gray-200
               < p className="text-red-500 text-xs italic">
                 Please fill out this field.
@@ -83,7 +87,7 @@ const AppointmentForm = () => {
                   id="Mobile_Number"
                   type="text"
                   placeholder="MOBILE NUMBER"
-                />
+                required />
               </div>
             </div>
 
@@ -98,7 +102,7 @@ const AppointmentForm = () => {
                   id="dates"
                   type="datetime-local"
                   placeholder="hello"
-                />
+                required/>
               </div>
               <div className="w-full md:w-1/2 px-3">
                 <label
@@ -110,11 +114,14 @@ const AppointmentForm = () => {
                   id="Email_Id"
                   type="text"
                   placeholder="EMAIL ID"
-                />
+                required />
               </div>
             </div>
+            <div className='flex flex-col pb-7'>
+            <input className="self-center button-35 mt-3" type="submit" value="view service"/>
+            </div>
   <label htmlFor="services" className="block "></label>
-  <select onChange={setTheService} id="servicess" className=" bg-white text-gray-400 dark:text-gray-400 h-14 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+  <select onChange={setTheService} id="servicess" className=" bg-white text-gray-400 dark:text-gray-400 h-14 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" hidden>
     <option selected>CHOOSE A SERVICE</option>
     <option value="hairCut">Hair Cuts & Styling</option>
     <option value="hairColour">Hair Colouring & Highlights</option>

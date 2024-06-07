@@ -1,11 +1,55 @@
 import React from 'react'
 import { useNavigate, useLocation } from 'react-router-dom';
-
+import { useEffect } from 'react';
+import axios from "axios";
+import Cookies from "js-cookie";
 const Payment = () => {
     const navigate=useNavigate();
     const location=useLocation();   
     const processPayment=()=>{
-        alert("Payment succesful");
+      
+        if(window.confirm("Are you sure to place order"))
+          {
+        
+        let custName,custNo,date,mail,service,stylist;
+        custName=location.state.appData[0].name;
+        custNo=location.state.appData[0].custno;
+        date=location.state.appData[0].date;
+        mail=location.state.appData[0].email;
+        service=location.state.appData[0].service;
+        stylist=location.state.appData[0].stylist;
+        const jwt=Cookies.get("jwtToken");
+      
+        axios({
+          headers:{"Content-Type":"application/json"},
+          method:"POST",
+          credentials:"include",
+          url:"http://localhost:5000/api/salon/saveappointment",
+          data:{
+            custName,
+            custNo,
+            date,
+            mail,
+            service,
+            stylist,
+            jwt
+          }
+        }).then((response)=>{
+          console.log(response.data);
+          if(response.data=="exists")
+            {
+              alert("the appointment already exists");
+              navigate("/Services");
+            }
+            else{
+              alert("payment successful and order placed successfully");
+              // navigate("/Services");
+              //navigate("/Payment");
+            }
+        });
+      }else{
+        alert("order has been cancelled");
+      }
         navigate("/FinalOrder",{state:{appData:location.state.appData}});
     }
   return (

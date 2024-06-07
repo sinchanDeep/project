@@ -22,6 +22,8 @@ const femaleServices = [
   // Add more services for women here
 ];
 
+let arr=[{service:"",price:""},{service:"",price:""},{service:"",price:""},{service:"",price:""},{service:"",price:""},{service:"",price:""},{service:"",price:""},{service:"",price:""},{service:"",price:""},{service:"",price:""}];
+
 axios({
   headers:{"Content-Type":"application/json"},
   method:"GET",
@@ -29,32 +31,13 @@ axios({
   url:"http://localhost:5000/api/salon/getprice",
 }).then((response)=>{
   console.log(response.data);
+  arr=response.data;
 });
 
 const ServicePrice = () => {
   return (
     <>
         <Navbar/>
-        {/*<div className='flex flex-col content-center justify-center'>
-            <div className='border-black-700'>
-                <img className='w-full' src="images/priceWomen.png"/>
-            </div>
-            <div className='mt-9'>
-              <img className ='w-full'src="images/hairCareWoman.jpg"/>
-            </div>
-            <div className=''>
-              <img className='w-full' src="images/hairStyleWomanPrice.jpg"/>
-            </div>
-            <div>
-              <img className='w-full' src="images/womanColor.jpg"/>
-            </div>
-            <div>
-              <img className='w-full' src='images/womanTexture.jpg'/>
-            </div>
-            <div>
-              <img className='w-full' src='images/womanHairTreatment.jpg'/>
-            </div>
-        </div>*/}
           <div className="container mx-auto py-8">
       <h1 className="text-5xl font-bold mb-8 text-center text-blue-800 leading-tight bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text">Price Menu</h1>
       
@@ -63,13 +46,43 @@ const ServicePrice = () => {
           <div className="px-6 py-4">
             <h2 className="text-3xl font-semibold mb-4 text-white">Men Services</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {maleServices.map((service, index) => (
-                <div key={index} className="border rounded-lg p-4 bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:-translate-y-1">
-                  <h3 className="text-xl font-semibold mb-2">{service.name}</h3>
-                  <p className="text-blue-500 font-semibold mb-2">{service.price}</p>
-                  <p className="text-gray-600">{service.description}</p>
+             
+                <div className="border rounded-lg p-4 bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:-translate-y-1">
+                  <h3 className="text-xl font-semibold mb-2">{arr[5].service}</h3>
+                  <p className="text-blue-500 font-semibold mb-2">{arr[5].price}</p>
+                  <p className="text-gray-600">{maleServices[0].description}</p>
                 </div>
-              ))}
+
+                <div className="border rounded-lg p-4 bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:-translate-y-1">
+                  <h3 className="text-xl font-semibold mb-2">{arr[6].service}</h3>
+                  <p className="text-blue-500 font-semibold mb-2">{arr[6].price}</p>
+                  <p className="text-gray-600">{maleServices[1].description}</p>
+                </div>
+
+                <div  className="border rounded-lg p-4 bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:-translate-y-1">
+                  <h3 className="text-xl font-semibold mb-2">{arr[7].service}</h3>
+                  <p className="text-blue-500 font-semibold mb-2">{arr[7].price}</p>
+                  <p className="text-gray-600">{maleServices[2].description}</p>
+                </div>
+
+                <div className="border rounded-lg p-4 bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:-translate-y-1">
+                  <h3 className="text-xl font-semibold mb-2">{arr[8].service}</h3>
+                  <p className="text-blue-500 font-semibold mb-2">{arr[8].price}</p>
+                  <p className="text-gray-600">{maleServices[3].description}</p>
+                </div>
+
+                <div  className="border rounded-lg p-4 bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:-translate-y-1">
+                  <h3 className="text-xl font-semibold mb-2">{arr[0].service}</h3>
+                  <p className="text-blue-500 font-semibold mb-2">{arr[0].price}</p>
+                  <p className="text-gray-600">{maleServices[4].description}</p>
+                </div>
+
+                <div  className="border rounded-lg p-4 bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:-translate-y-1">
+                  <h3 className="text-xl font-semibold mb-2">{arr[1].service}</h3>
+                  <p className="text-blue-500 font-semibold mb-2">{arr[1].price}</p>
+                  <p className="text-gray-600">{maleServices[4].description}</p>
+                </div>
+         
             </div>
           </div>
         </div>
@@ -78,13 +91,37 @@ const ServicePrice = () => {
           <div className="px-6 py-4">
             <h2 className="text-3xl font-semibold mb-4 text-white">Women Services</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {femaleServices.map((service, index) => (
-                <div key={index} className="border rounded-lg p-4 bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:-translate-y-1">
-                  <h3 className="text-xl font-semibold mb-2">{service.name}</h3>
-                  <p className="text-pink-500 font-semibold mb-2">{service.price}</p>
-                  <p className="text-gray-600">{service.description}</p>
+      
+                <div  className="border rounded-lg p-4 bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:-translate-y-1">
+                  <h3 className="text-xl font-semibold mb-2">{arr[0].service}</h3>
+                  <p className="text-pink-500 font-semibold mb-2">{arr[0].price}</p>
+                  <p className="text-gray-600">{femaleServices[0].description}</p>
                 </div>
-              ))}
+
+                <div  className="border rounded-lg p-4 bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:-translate-y-1">
+                  <h3 className="text-xl font-semibold mb-2">{arr[1].service}</h3>
+                  <p className="text-pink-500 font-semibold mb-2">{arr[1].price}</p>
+                  <p className="text-gray-600">{femaleServices[1].description}</p>
+                </div>
+
+                <div  className="border rounded-lg p-4 bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:-translate-y-1">
+                  <h3 className="text-xl font-semibold mb-2">{arr[2].service}</h3>
+                  <p className="text-pink-500 font-semibold mb-2">{arr[2].price}</p>
+                  <p className="text-gray-600">{femaleServices[2].description}</p>
+                </div>
+
+                <div  className="border rounded-lg p-4 bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:-translate-y-1">
+                  <h3 className="text-xl font-semibold mb-2">{arr[3].service}</h3>
+                  <p className="text-pink-500 font-semibold mb-2">{arr[3].price}</p>
+                  <p className="text-gray-600">{femaleServices[3].description}</p>
+                </div>
+
+                <div  className="border rounded-lg p-4 bg-white shadow-md hover:shadow-lg transform transition duration-300 hover:-translate-y-1">
+                  <h3 className="text-xl font-semibold mb-2">{arr[4].service}</h3>
+                  <p className="text-pink-500 font-semibold mb-2">{arr[4].price}</p>
+                  <p className="text-gray-600">{femaleServices[4].description}</p>
+                </div>
+             
             </div>
           </div>
         </div>

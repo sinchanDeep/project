@@ -56,7 +56,8 @@ const getAppointment=(styler)=>{
             "stylist":custStylist
       }]
       
-          navigate("/FinalOrder",{state:{appData:appData}});
+          //navigate("/FinalOrder",{state:{appData:appData}});
+          navigate("/Payment",{state:{appData:appData}});
         }
 
     })

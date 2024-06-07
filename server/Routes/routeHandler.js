@@ -14,6 +14,7 @@ const {checkappointment}=require("../controller/controller");
 const {ForgotPassword}=require("../controller/controller");
 const {generateotp}=require("../controller/controller");
 const {getallappointments}=require("../controller/controller");
+const {processpayment}=require("../controller/controller");
 const validateToken = require("../middleware/validateToken");
 
 
@@ -35,5 +36,6 @@ router.route("/checkappointment").post(checkappointment);
 router.route("/ForgotPassword").post(ForgotPassword);
 router.route("/generateotp").post(generateotp);
 router.route("/getallappointments").post(getallappointments);
+router.route("/processpayment").get(processpayment);
 
 module.exports=router;

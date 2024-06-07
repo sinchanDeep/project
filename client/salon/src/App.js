@@ -17,6 +17,7 @@ import ServicePrice from './components/ServicePrice';
 import FinalOrder from './components/FinalOrder';
 import ForgotPassword from './components/ForgotPassword';
 import Myorders from './components/Myorders';
+import Payment from './components/Payment';
 
 function App() {
  /* const router=createBrowserRouter([
@@ -47,6 +48,7 @@ function App() {
         <Route path="/ServicePrice" element={<ServicePrice/>}/>
         <Route path="/FinalOrder" element={<FinalOrder/>}/>
         <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
+        <Route path="/Payment" element={<Payment/>}/>
       </Routes>
     </BrowserRouter>
     </>

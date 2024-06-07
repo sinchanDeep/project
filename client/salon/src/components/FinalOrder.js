@@ -44,7 +44,8 @@ const FinalOrder = () => {
           }
           else{
             alert("order placed successfully");
-            navigate("/Services");
+             navigate("/Services");
+            //navigate("/Payment");
           }
       });
     }else{

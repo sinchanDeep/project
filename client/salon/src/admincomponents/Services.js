@@ -93,6 +93,7 @@ const Services = () => {
       }
     }).then((response)=>{
       console.log(response.data);
+      //setServices(response.data);
     })
     const existingService = services.find(service =>
       service.name.toLowerCase() === newService.name.toLowerCase()

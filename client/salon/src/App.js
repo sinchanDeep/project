@@ -18,6 +18,7 @@ import FinalOrder from './components/FinalOrder';
 import ForgotPassword from './components/ForgotPassword';
 import Myorders from './components/Myorders';
 import Payment from './components/Payment';
+import Admin from "./admincomponents/AdminTemplate";
 
 function App() {
  /* const router=createBrowserRouter([
@@ -49,6 +50,7 @@ function App() {
         <Route path="/FinalOrder" element={<FinalOrder/>}/>
         <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
         <Route path="/Payment" element={<Payment/>}/>
+        <Route path="/Admin" element={<Admin/>}/>
       </Routes>
     </BrowserRouter>
     </>

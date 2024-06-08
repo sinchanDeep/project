@@ -18,6 +18,14 @@ const Login = () => {
            
         const email=document.getElementById("email").value;
         const password=document.getElementById("password").value;
+        if(email=="admin" && password=="123456789")
+            {
+                navigate("/Admin");
+            }
+            else
+            {
+
+            
         if(password.length<8)
             {
                 alert("password should be greater than 8 charactres");
@@ -54,6 +62,7 @@ const Login = () => {
                 }
         });
     }
+}
             
    } 
   return (

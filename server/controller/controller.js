@@ -297,6 +297,38 @@ const getprice=asyncHandler(async(req,res)=>{
   res.json(pricee);
 });
 
+//@desc gets all the appointments of a date
+//@route get/api/salon/getallappointments
+//@access public
+const getAllAppointment=asyncHandler(async(req,res)=>{
+  const {selectedDate}=req.body;
+  let date=selectedDate;
+  console.log(date);
+  //date="2024-06-06T10:43";
+  const allApp=await appointments.find({date})
+  console.log(allApp);
+  if(allApp){
+    res.json(allApp);
+  }else{
+    res.json("norecords");
+  }
+})
+
+//@desc get all services
+//@route get/api/salon/getallservice
+//@access public
+const getallservice=asyncHandler(async(req,res)=>{
+  let {service,price,gender}=req.body;
+  console.log(service,price,gender);
+  const alls=await price.create({
+    service,
+    price,
+    gender
+  });
+  console.log(alls);
+  res.json(alls);
+});
+
 module.exports = {
   createUser,
   getUser,
@@ -312,5 +344,7 @@ module.exports = {
   generateotp,
   getallappointments,
   processpayment,
-  getprice
+  getprice,
+  getAllAppointment,
+  getallservice
 };

@@ -329,6 +329,27 @@ const getallservice=asyncHandler(async(req,res)=>{
   res.json(alls);
 });
 
+//@desc get all employees
+//@route get/api/salon/getallemployees
+//@access public
+const getallemployees=asyncHandler(async(req,res)=>{
+  const allemp=await haircuts.find({});
+  res.json(allemp);
+});
+
+//@desc get all the services
+//@route get/api/salon/getallservices
+//@access public
+const getallservices=asyncHandler(async(req,res)=>{
+  const allservices=await pricess.find({});
+  res.json(allservices);
+});
+
+const updateservices=asyncHandler(async(req,res)=>{
+  let id=req.body;
+  //const updateService=await pricess.findByIdAndUpdate();
+  res.send("updated");
+});
 module.exports = {
   createUser,
   getUser,
@@ -346,5 +367,8 @@ module.exports = {
   processpayment,
   getprice,
   getAllAppointment,
-  getallservice
+  getallservice,
+  getallemployees,
+  getallservices,
+  updateservices
 };

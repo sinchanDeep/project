@@ -26,8 +26,12 @@ const Home = () => {
     }
 }
 const logout=()=>{
+    window.confirm("do you want to log out");
+    {
     Cookies.remove("jwtToken");
     navigate("/");
+    }
+    
 }
     const userLogged= async ()=>{  
         try{

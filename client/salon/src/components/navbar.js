@@ -16,8 +16,11 @@ const Navbar=()=> {
     const navigate=useNavigate();
     let [val,setVal]=useState(true);
     const logout=()=>{
+      if(window.confirm("do you want to logout"))
+        {
       Cookies.remove("jwtToken");
       navigate("/");
+        }
   }
      const userLogged= async ()=>{  
         try{

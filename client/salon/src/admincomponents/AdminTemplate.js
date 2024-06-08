@@ -28,9 +28,7 @@ const Sidebar = ({ onItemClick }) => {
         <li className="px-4 py-3 cursor-pointer hover:bg-gray-800 transition duration-300 ease-in-out" onClick={() => onItemClick("Services")}>
           <i className="fas fa-cut mr-3"></i><span className="font-medium hidden sm:inline">Services</span>
         </li>
-        <li className="px-4 py-3 cursor-pointer hover:bg-gray-800 transition duration-300 ease-in-out" onClick={() => onItemClick("Customers")}>
-          <i className="fas fa-users mr-3"></i><span className="font-medium hidden sm:inline">Customers</span>
-        </li>
+        
         <li className="px-4 py-3 cursor-pointer hover:bg-gray-800 transition duration-300 ease-in-out" onClick={() => onItemClick("Employees")}>
           <i className="fas fa-cog mr-3"></i><span className="font-medium hidden sm:inline">Employees</span>
         </li>

@@ -45,12 +45,14 @@ const Payment = () => {
               alert("payment successful and order placed successfully");
               // navigate("/Services");
               //navigate("/Payment");
+              navigate("/FinalOrder",{state:{appData:location.state.appData}});
             }
         });
       }else{
         alert("order has been cancelled");
+        navigate("/Services");
       }
-        navigate("/FinalOrder",{state:{appData:location.state.appData}});
+        
     }
   return (
     <>
@@ -69,7 +71,7 @@ const Payment = () => {
 
             <div class="col-span-2 sm:col-span-1">
               <label for="card-number-input" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> Card number* </label>
-              <input type="text" id="card-number-input" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pe-10 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500" placeholder="xxxx-xxxx-xxxx-xxxx"  required />
+              <input type="text" minLength="16" maxLength="16" id="card-number-input" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pe-10 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500" placeholder="xxxx-xxxx-xxxx-xxxx" pattern="[0-9]{16}"  title={"Enter valid card number"}  required />
             </div>
 
             <div>

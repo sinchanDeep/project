@@ -18,6 +18,9 @@ const {processpayment}=require("../controller/controller");
 const {getprice}=require("../controller/controller");
 const {getAllAppointment}=require("../controller/controller");
 const {getallservice}=require("../controller/controller");
+const {getallemployees}=require("../controller/controller");
+const {getallservices}=require("../controller/controller");
+const {updateservices}=require("../controller/controller");
 const validateToken = require("../middleware/validateToken");
 
 
@@ -43,6 +46,9 @@ router.route("/processpayment").get(processpayment);
 router.route("/getprice").get(getprice);
 router.route("/getAllAppointment").post(getAllAppointment);
 router.route("/getallservice").post(getallservice);
+router.route("/getallemployees").get(getallemployees);
+router.route("/getallservices").get(getallservices);
+router.route("/updateService").post(updateservices);
 
 
 module.exports=router;

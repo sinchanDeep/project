@@ -301,11 +301,11 @@ const getprice=asyncHandler(async(req,res)=>{
 //@route get/api/salon/getallappointments
 //@access public
 const getAllAppointment=asyncHandler(async(req,res)=>{
-  const {selectedDate}=req.body;
-  let date=selectedDate;
-  console.log(date);
+  //const {selectedDate}=req.body;
+  //let date=selectedDate;
+  //console.log(date);
   //date="2024-06-06T10:43";
-  const allApp=await appointments.find({date})
+  const allApp=await appointments.find({})
   console.log(allApp);
   if(allApp){
     res.json(allApp);

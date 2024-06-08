@@ -44,4 +44,5 @@ router.route("/getprice").get(getprice);
 router.route("/getAllAppointment").post(getAllAppointment);
 router.route("/getallservice").post(getallservice);
 
+
 module.exports=router;

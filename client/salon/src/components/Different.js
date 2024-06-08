@@ -1,4 +1,5 @@
 import React from 'react';
+import Navbar from '../components/Navbar';
 
 function Different() {
   return (
@@ -31,9 +32,10 @@ function Different() {
         </div>
       </div>
   </section>*/}
+  <Navbar/>
   <section className="bg-gray-100 py-12">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-6 text-center">Why Choose Us?</h2>
+        <h2 className="text-3xl font-bold mb-6 text-center">Why we are different ?</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="flex flex-col items-center">
             <img src="images/eHaircuts.png" alt="Quality Haircuts" className="w-24 h-24 mb-4" />

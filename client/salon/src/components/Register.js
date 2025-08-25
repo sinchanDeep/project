@@ -43,7 +43,7 @@ const Register = () => {
        axios({
         headers:{"Content-Type":"application/json"},
         method:"POST",
-        url:"http://localhost:5000/api/salon/register",
+        url:"http://192.168.1.103:5000/api/salon/register",
         data:{
             fname:fname,
             lname:lname,

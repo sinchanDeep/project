@@ -8,9 +8,15 @@ const cors=require("cors");
 const cookieParser=require("cookie-parser");
 const port=process.env.PORT;
 
+const corsOptions = {
+    origin: '*', //'http://localhost:3000',http://192.168.1.102:3000 // React app's origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+    credentials: true // Allow credentials (if you're using cookies, for example)
+  };
 
 //cors middleware
-App.use(cors());
+App.use(cors(corsOptions));
 
 
 //json middleware
@@ -33,6 +39,6 @@ connectDb();
 
 
 //server listening
-App.listen(port,()=>{
+App.listen(port,'0.0.0.0',()=>{
     console.log("Server is Listening at: ",port);
 })

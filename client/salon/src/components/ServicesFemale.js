@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function ServicesFemale() {
 const navigate=useNavigate();
-  const price=()=>{
-    navigate("/ServicePrice");
+
+
+
+
+  const price=(heading,gender)=>{
+    navigate("/PriceMenu",{state : { heading , gender }});
   }
   return (
     <>
@@ -21,7 +25,7 @@ const navigate=useNavigate();
                 Meeting the new you is only a haircut away!
                 </p>
                 <div className='p-8 text-center'>
-                <button class="price1" onClick={price}>VIEW PRICE</button>
+                <button class="price1" onClick={()=>{price("Hair Cuts","female")}}>VIEW PRICE</button>
                 </div>
             </div>
             
@@ -41,7 +45,7 @@ const navigate=useNavigate();
                 Reinvent yourself by experimenting with colours!
                 </p>
                 <div className='p-8 pb-0 text-center'>
-                <button class="price1" onClick={price}>VIEW PRICE</button>
+                <button class="price1" onClick={()=>{price("Hair Colouring & Highlights","all")}}>VIEW PRICE</button>
                 </div>
               </div>
           </div>
@@ -62,7 +66,7 @@ const navigate=useNavigate();
                  Get that Naturals pampering head-to-toe!
                 </p>
                 <div className='p-8 pb-0 text-center md:p-8 pb-0 text-left lg:text-left'>
-                <button class="price1" onClick={price}>VIEW PRICE</button>
+                <button class="price1" onClick={()=>{price("Hair Spa","all")}}>VIEW PRICE</button>
                 </div>
               </div>
           </div>
@@ -82,7 +86,7 @@ const navigate=useNavigate();
                  Silky straight hair with Naturals!
                 </p>
                 <div className='p-8 pb-0 text-center md:p-8 pb-0 text-left lg:text-left'>
-                <button class="price1" onClick={price}>VIEW PRICE</button>
+                <button class="price1" onClick={()=>{price("Hair Straightening or smoothening","all")}}>VIEW PRICE</button>
                 </div>
               </div>
           </div>
@@ -100,7 +104,7 @@ const navigate=useNavigate();
                 Give your dull, brittle hair a new life in just a snap!
                 </p>
                 <div className='p-8 pb-0 text-center md:p-8 pb-0 text-left lg:text-left'>
-                <button class="price1" onClick={price}>VIEW PRICE</button>
+                <button class="price1" onClick={()=>{price("Keratin Hair Service","female")}}>VIEW PRICE</button>
                 </div>
               </div>
         

@@ -4,6 +4,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import homeCss from "../stylesheets/Home.module.css";
 const show=()=>
 {
   const obj=document.getElementById("sh");
@@ -37,7 +38,7 @@ const logout=()=>{
             headers:{"Content-Type":"application/json"},
             method:"POST",
             credentials:"include",
-            url:"http://localhost:5000/api/salon",
+            url:"http://192.168.1.103:5000/api/salon",
             data:{
                 tkn
             }
@@ -115,7 +116,7 @@ const logout=()=>{
         </nav> 
         </div>  
         </div>
-        <div className='md:flex flex-row flex-col gap-3 grow' id="texts">
+        <div className='md:flex flex-row flex-col gap-3 grow' id={homeCss.fadein}>
             <div className='m-4'>
             <h1 className="py-10 md:px-0 px-1 md:text-4xl/[47px] text-2xl/[40px] md:text-left text-center"style={{color:"purple",fontFamily:"sans-serif"}}>Highest-Rated Software for Salons & Spas</h1>
             <h1 className="md:px-0 px-5 ml-3 md:text-5xl/[47px] text-2xl/[40px] md:text-left" style={{fontSize:"50px",color:"darkblue"}}>Where business gets<br/> more beautiful</h1> 

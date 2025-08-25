@@ -3,6 +3,7 @@ import ServicesFemale from '../components/ServicesFemale'
 import Navbar from '../components/Navbar'
 import {useState} from 'react'
 import ServiceMale from '../components/ServiceMale'
+import ServiceCss from '../stylesheets/Service.module.css';
 
 
 
@@ -15,7 +16,7 @@ const Services = () => {
     <>
     
       <Navbar/>
-      <div className="flex flex-col gap-4">
+      <div id={ServiceCss.page} className="flex flex-col gap-4">
           <div className='self-center'>
             <img src="images/carousel.jpg"></img>
           </div>

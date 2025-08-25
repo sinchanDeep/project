@@ -48,7 +48,7 @@ const Myorders = () => {
     headers:{"Content-Type":"application/json"},
     method:"POST",
     credentials:"include",
-    url:"http://localhost:5000/api/salon/getallappointments",
+    url:"http://192.168.1.103:5000/api/salon/getallappointments",
     data:{
       jwt
     }

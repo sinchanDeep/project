@@ -40,7 +40,7 @@ router.route("/ForgotPassword").post(ForgotPassword);
 router.route("/generateotp").post(generateotp);
 router.route("/getallappointments").post(getallappointments);
 router.route("/processpayment").get(processpayment);
-router.route("/getprice").get(getprice);
+router.route("/getprice").post(getprice);
 router.route("/getAllAppointment").post(getAllAppointment);
 router.route("/getallservice").post(getallservice);
 

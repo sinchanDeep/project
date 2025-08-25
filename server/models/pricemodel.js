@@ -1,15 +1,12 @@
 
 const mongoose=require("mongoose");
 const pricemodel=mongoose.Schema({
-    service:{
+    style:{
         type:String
     },
     price:{
-        type:String
+        type:{}
     },
-    gender:{
-        type:String
-    }
 });
 
 module.exports=mongoose.model("prices",pricemodel);

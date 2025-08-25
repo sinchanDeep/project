@@ -36,7 +36,7 @@ const ForgotPassword = () => {
                 headers:{"Content-Type":"application/json"},
                 method:"POST",
                 credentials:"include",
-                url:"http://localhost:5000/api/salon/ForgotPassword",
+                url:"http://http://192.168.1.103:5000/api/salon/ForgotPassword",
                 data:{
                     mail,
                     pass1
@@ -57,7 +57,7 @@ const ForgotPassword = () => {
             headers:{"Content-Type":"application/json"},
             method:"POST",
             credentials:"include",
-            url:"http://localhost:5000/api/salon/generateotp",
+            url:"http://http://192.168.1.103:5000/api/salon/generateotp",
             data:{
                     email
             }

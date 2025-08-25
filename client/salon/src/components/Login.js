@@ -36,7 +36,7 @@ const Login = () => {
             headers:{"Content-Type":"application/json"},
             method:"POST",
             credentials: 'include', //use 'on-site' if you want the server to receive cookie only from the same domain
-            url:"http://localhost:5000/api/salon/login",
+            url:"http://192.168.1.105:5000/api/salon/login",
             data:{
                 email,
                 password

@@ -293,7 +293,25 @@ const processpayment = asyncHandler(async (req, res) => {
 //@route get/api/salon/getprice
 //@access public
 const getprice=asyncHandler(async(req,res)=>{
-  const pricee=await pricess.find({});
+  const { heading , gender } = req.body;
+  let value = "";
+  if(heading == "Hair Cuts & Styling")
+    value = "menHairStyle";
+  else if(heading == "Hair Colouring & Highlights")
+    value = "hairColouringHighlights";
+  else if(heading == "Beard trim")
+    value = "beardTrim";
+  else if(heading == "Head Massage")
+    value = "headMassage";
+  else if(heading == "Hair Spa")
+    value = "hairSpa";
+  else if(heading == "Hair Straightening or smoothening")
+    value = "hairStraightening";
+  else if(heading == "Hair Cuts")
+    value = "femaleHairCuts";
+  else if(heading == "Keratin Hair Service")
+    value = "keratin"
+  const pricee = await pricess.find({ style : value , gender : gender});
   res.json(pricee);
 });
 

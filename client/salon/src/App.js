@@ -12,13 +12,15 @@ import Different from './components/Different';
 import Services from './components/Services';
 //import Resources from './components/Resources';
 import Appointment from './components/Appointment';
-import ServicePrice from './components/ServicePrice';
+//import ServicePrice from './components/ServicePrice';
 //import Stylist from './components/Stylist';
 import FinalOrder from './components/FinalOrder';
 import ForgotPassword from './components/ForgotPassword';
 import Myorders from './components/Myorders';
 import Payment from './components/Payment';
 import Admin from "./admincomponents/AdminTemplate";
+import PriceMenu from './components/PriceMenu';
+import Bookings from './components/Bookings';
 
 function App() {
  /* const router=createBrowserRouter([
@@ -46,11 +48,12 @@ function App() {
         <Route path="/Services" element={<Services/>}/>
         <Route path="/myorders" element={<Myorders/>}/>
         <Route path="/Resources" element={<Appointment/>}/>
-        <Route path="/ServicePrice" element={<ServicePrice/>}/>
+        <Route path="/PriceMenu" element={<PriceMenu/>}/>
         <Route path="/FinalOrder" element={<FinalOrder/>}/>
         <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
         <Route path="/Payment" element={<Payment/>}/>
         <Route path="/Admin" element={<Admin/>}/>
+        <Route path="/booking" element={<Bookings/>}/>
       </Routes>
     </BrowserRouter>
     </>

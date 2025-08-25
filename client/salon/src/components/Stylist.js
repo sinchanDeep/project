@@ -34,7 +34,7 @@ const getAppointment=(styler)=>{
       headers:{"Content-Type":"application/json"},
       method:"POST",
       credentials:"include",
-      url:"http://localhost:5000/api/salon/checkappointment",
+      url:"http://192.168.1.103:5000/api/salon/checkappointment",
       data:{
         appDate,
         custStylist,
@@ -72,7 +72,7 @@ const getAppointment=(styler)=>{
       headers:{"Content-Type":"application/json"},
       method:"GET",
       credentials:"include",
-      url:"http://localhost:5000/api/salon/getHairStylists"
+      url:"http://192.168.1.103:5000/api/salon/getHairStylists"
     }).then((response)=>{
       setStyistArray([
         {
@@ -98,7 +98,7 @@ const getAppointment=(styler)=>{
       headers:{"Content-Type":"application/json"},
       method:"GET",
       credentials:"include",
-      url:"http://localhost:5000/api/salon/getHairStylists"
+      url:"http://192.168.1.103:5000/api/salon/getHairStylists"
     }).then((response)=>{
       setStyistArray([
         {
@@ -126,7 +126,7 @@ const getAppointment=(styler)=>{
       headers:{"Content-Type":"application/json"},
       method:"GET",
       credentials:"include",
-      url:"http://localhost:5000/api/salon/getHairStylists"
+      url:"http://192.168.1.103:5000/api/salon/getHairStylists"
     }).then((response)=>{
       setStyistArray([
         {
@@ -154,7 +154,7 @@ const getAppointment=(styler)=>{
       headers:{"Content-Type":"application/json"},
       method:"GET",
       credentials:"include",
-      url:"http://localhost:5000/api/salon/getHairStylists"
+      url:"http://192.168.1.103:5000/api/salon/getHairStylists"
     }).then((response)=>{
       setStyistArray([
         {
@@ -183,7 +183,7 @@ const getAppointment=(styler)=>{
       headers:{"Content-Type":"application/json"},
       method:"GET",
       credentials:"include",
-      url:"http://localhost:5000/api/salon/getHairStylists"
+      url:"http://192.168.1.103:5000/api/salon/getHairStylists"
     }).then((response)=>{
       setStyistArray([
         {
